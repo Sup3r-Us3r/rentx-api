@@ -1,4 +1,3 @@
-
 import 'reflect-metadata';
 import 'dotenv/config';
 import 'express-async-errors';
@@ -13,6 +12,7 @@ import { AppError } from '@shared/errors/AppError';
 import createConnection from '@shared/infra/typeorm';
 
 import swaggerFile from '../../../swagger.json';
+import rateLimiter from './middlewares/rateLimiter';
 import { routes } from './routes';
 
 class App {
@@ -25,6 +25,7 @@ class App {
   }
 
   middlewares() {
+    this.server.use(rateLimiter);
     this.server.use(cors());
     this.server.use(express.json());
     this.server.use(express.urlencoded({ extended: false }));
