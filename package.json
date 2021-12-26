@@ -11,6 +11,8 @@
     "test": "NODE_ENV=test jest --runInBand --detectOpenHandles"
   },
   "dependencies": {
+    "@sentry/node": "^6.16.1",
+    "@sentry/tracing": "^6.16.1",
     "@types/cors": "^2.8.12",
     "aws-sdk": "^2.1046.0",
     "bcrypt": "^5.0.1",
